@@ -11,7 +11,7 @@ args = parser.parse_args()
 
 files = os.listdir(args.input_path)
 for f in files:
-    df = pd.read_csv(os.path.join(args.input_path, f))
+    df = pd.read_csv(os.path.join(args.input_path, f), index_col=0, header=0)
     train, test = train_test_split(df, test_size=0.25, shuffle=False)
     train_data = common.ListDataset([{
         "start": df.index[0],
