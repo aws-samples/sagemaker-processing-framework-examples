@@ -1,10 +1,11 @@
 .DS_Store
 __pycache__/
 *.pyc
-*.ipynb_checkpoint
+*.ipynb_checkpoints
 .env
 .vscode
 .data
 .output
 .placeholder
 pytorch-sample/coco-annotations.zip
+model.tar.gz

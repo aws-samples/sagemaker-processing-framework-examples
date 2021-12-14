@@ -39,8 +39,10 @@ output = []
 files = os.listdir(args.data_path)
 for f in files:
     data = np.load(os.path.join(args.data_path, f))
-    output.append(processing_logic(args.data_path, model))
+    output.append(processing_logic(data, model))
 
 # Save the predictions locally, SageMaker will store to S3
 with open(os.path.join(args.output_path, 'output.txt'), 'w') as w:
-    w.write(output)
+    for o in output[0]:
+        w.write(str(o)+'\n')
+print(f"Output wrote correctly to {os.path.join(args.output_path, 'output.txt')}")
